@@ -18,7 +18,7 @@
           </li>
         </ul>
         <span class="navbar-text">
-          Navbar text with an inline element
+          {{ curren_user }}
         </span>
       </div>
     </nav>
@@ -27,8 +27,15 @@
 </template>
 
 <script>
+
 export default {
-  name: 'App'
+  name: 'App',
+  data() {
+    return {
+      curren_user : localStorage.current_user
+    }
+  }
+
 }
 </script>
 

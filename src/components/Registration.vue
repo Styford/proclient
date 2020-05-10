@@ -3,11 +3,11 @@
     <div class="container align-middle col-sm-5 col-md-3 col-lg-2 col-xl-2">
       <form  @submit="login">
         <div class="form-group">
-          <label for="exampleInputEmail1">Электронная почта</label>
+          <label for="inputEmail1">Электронная почта</label>
           <input
             type="email"
             class="form-control"
-            id="exampleInputEmail1"
+            id="inputEmail1"
             aria-describedby="emailHelp"
             v-model="email"
             required
@@ -18,13 +18,13 @@
           >Введите вашу рабочую почту @elesy.ru</small>
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">Пароль</label>
-          <input required v-model="pass1" type="password" class="form-control" id="exampleInputPassword1" />
+          <label for="inputPassword1">Пароль</label>
+          <input required v-model="pass1" type="password" class="form-control" id="inputPassword1" />
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword2">Подтверждение</label>
-          <input required v-model="pass2" type="password" class="form-control" id="exampleInputPassword2" />
-          <span style="color: red"> {{response}} </span>
+          <label for="inputPassword2">Подтверждение</label>
+          <input required v-model="pass2" type="password" class="form-control" id="inputPassword2" />
+          <span style="color: red"> {{ response.message }} </span>
         </div>
         
         <button type="submit" class="btn btn-dark">Сделать мир лучше!</button>
@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+//import axios from 'axios';
 
 export default {
   data() {
@@ -42,7 +42,7 @@ export default {
       email: "",
       pass1: "",
       pass2: "",
-      response: "",
+      response: {},
       payload: {},
     };
   },
@@ -50,17 +50,20 @@ export default {
     login(evt) {      
       evt.preventDefault();
       this.response = "";
-      const path = 'http://localhost:5000/user/registration';
+      const path = 'http://10.99.0.103:5000/user/registration';
       if (this.pass1 == this.pass2) {
         this.payload = {
           "email" : this.email,
           "password" : this.pass1
         },
-        console.log(this.payload)
-        axios.post(path, this.payload)
+        this.axios.post(path, this.payload)
           .then((res) => {
-            this.response = res.data.response;
-
+            this.response = res.data;
+            console.log(this.response.message);
+            if (this.response.status === "success") {
+              localStorage.current_user = this.response.current_user;
+              this.$router.push('/');
+            }
           })
           .catch((error) => {
             console.error(error);
