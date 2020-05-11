@@ -41,26 +41,13 @@ export default {
     };
   },
   methods: {
-    login(evt) {      
+    login(evt) {
       evt.preventDefault();
-      this.response = {};
-      const path = 'http://10.99.0.103:5000/user/login';
       this.payload = {
-        "email" : this.email,
-        "password" : this.pass1
-      },
-      this.axios.post(path, this.payload)
-        .then((res) => {
-          this.response = res.data;
-          console.log(this.response.message);
-          if (this.response.status === "success") {
-            localStorage.current_user = this.response.current_user;
-            this.$router.push('/');
-          }
-        })
-        .catch((error) => {
-          console.error(error);
-        })
+              "email" : this.email,
+              "password" : this.pass1
+            },
+      this.$store.dispatch('login', this.payload)
     }
   },
   created() {

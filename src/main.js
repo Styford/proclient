@@ -6,26 +6,21 @@ import App from './App'
 import router from './router'
 import axios from 'axios';
 import VueAxios from 'vue-axios';
-import Vuex from 'vuex';
+import store from './store'
+import Navigation from '@/components/Navigation'
 
 Vue.use(VueAxios, axios);
-Vue.use(Vuex)
-Vue.config.productionTip = false;
+Vue.use(Navigation)
 
-const store = new Vuex.Store({
-  state: {
-    current_user: ""
-  },
-  mutations: {
-    update_user (state) {
-      state.current_user = ""
-    }
-  }
-})
+Vue.component('navigation', Navigation);
+
+
+Vue.config.productionTip = false;
 
 
 /* eslint-disable no-new */
 new Vue({
+  store,
   el: '#app',
   router,
   components: { App },

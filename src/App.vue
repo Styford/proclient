@@ -1,41 +1,18 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Navbar w/ text</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-        </ul>
-        <span class="navbar-text">
-          {{ curren_user }}
-        </span>
-      </div>
-    </nav>
+    <navigation/>
     <router-view/>
   </div>
 </template>
 
 <script>
+import {mapActions} from 'vuex'
 
 export default {
-  name: 'App',
-  data() {
-    return {
-      curren_user : localStorage.current_user
-    }
+  methods: mapActions(['getCurrentUserFromServer']),
+  mounted() {
+      this.getCurrentUserFromServer()
   }
-
 }
 </script>
 
