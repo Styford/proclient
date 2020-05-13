@@ -1,5 +1,6 @@
 <template>
   <div class="container-fluid">
+    <span class="badge badge-danger float-left float-top alfa-badge">ALFA</span>
     <div class="mr-5 ml-5">
       <div class="dcol-xl-10">
         <h1>Проекты</h1>
@@ -9,166 +10,180 @@
         <button type="button" class="btn btn-success btn-sm">Новый проект</button>
         <br />
         <br />
-        <table class="table table-hover">
-          <thead>
+        <table class="table table-hover table-sm">
+          <thead class="sticky-top thead-dark">
             <tr>
               <th scope="col">ПГВР</th>
               <th scope="col">Путь</th>
-              <th scope="col">Разработчик</th>
-              <th scope="col">Особенности</th>
+              <th scope="col">КД</th>
+              <th scope="col">ВУ</th>
+              <th scope="col">СУ</th>
+              <th scope="col">ЭД</th>
+              <th scope="col">Базовое ПО</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr v-for="n in 20" :key="n">
               <td>
                 <b>986.57</b>
               </td>
-              <td>http://10.99.0.103:8888/986.57</td>
+              <td>http://986.57</td>
               <td>
                 <div class="media">
-                  <img src="https://via.placeholder.com/24" class="mr-3" alt="..." />
-                  <div class="media-body">Сызганов Степан</div>
-                </div>
-                <div class="media">
-                  <img src="https://via.placeholder.com/24" class="mr-3" alt="..." />
-                  <div class="media-body">Горячев Алексей</div>
-                </div>
-              </td>
-              <td>
-                <img src="https://via.placeholder.com/24" class="mr-3" alt="..." />
-                <img src="https://via.placeholder.com/24" class="mr-3" alt="..." />
-                <img src="https://via.placeholder.com/24" class="mr-3" alt="..." />
-                <img src="https://via.placeholder.com/24" class="mr-3" alt="..." />
-              </td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm">Изменить</button>
-                <button type="button" class="btn btn-danger btn-sm">Удалить</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <b>986.67</b>
-              </td>
-              <td>http://10.99.0.103:8888/986.57</td>
-              <td>
-                <div class="media">
-                  <img src="https://via.placeholder.com/24" class="mr-3" alt="..." />
-                  <div class="media-body">Сызганов Степан</div>
+                  <img
+                    title="hhwwlll"
+                    width="36"
+                    height="36"
+                    src="https://sun9-43.userapi.com/c855424/v855424708/15775d/wXpomsKnayc.jpg?ava=1"
+                    class="align-self-start mr-3"
+                    alt="..."
+                  />
+                  <div class="media-body">
+                    <div class="media-username">Баранов А.</div>
+                  </div>
                 </div>
               </td>
               <td>
-                <img src="https://via.placeholder.com/24" class="mr-3" alt="..." />
-                <img src="https://via.placeholder.com/24" class="mr-3" alt="..." />
-                <img src="https://via.placeholder.com/24" class="mr-3" alt="..." />
-              </td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm">Изменить</button>
-                <button type="button" class="btn btn-danger btn-sm">Удалить</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <b>986.67</b>
-              </td>
-              <td>http://10.99.0.103:8888/986.57</td>
-              <td>
                 <div class="media">
-                  <img src="https://via.placeholder.com/24" class="mr-3" alt="..." />
-                  <div class="media-body">Сызганов Степан</div>
+                  <img
+                    title="hhwwlll"
+                    width="36"
+                    height="36"
+                    src="https://sun9-43.userapi.com/c855424/v855424708/15775d/wXpomsKnayc.jpg?ava=1"
+                    class="mr-3"
+                    alt="..."
+                  />
+                  <div class="media-body">
+                    <div class="media-username">Сызганов С.</div>
+                  </div>
+                </div>
+                <div class="media" v-if="n==3">
+                  <img
+                    title="hhwwlll"
+                    width="36"
+                    height="36"
+                    src="https://sun9-43.userapi.com/c855424/v855424708/15775d/wXpomsKnayc.jpg?ava=1"
+                    class="mr-3"
+                    alt="..."
+                  />
+                  <div class="media-body">
+                    <div class="media-username">Веретёхин А.</div>
+                  </div>
                 </div>
               </td>
               <td>
-                <img src="https://via.placeholder.com/24" class="mr-3" alt="..." />
-                <img src="https://via.placeholder.com/24" class="mr-3" alt="..." />
+                <div class="media">
+                  <img
+                    width="36"
+                    height="36"
+                    src="https://sun9-43.userapi.com/c855424/v855424708/15775d/wXpomsKnayc.jpg?ava=1"
+                    class="mr-3"
+                    alt="..."
+                  />
+                  <div class="media-body">
+                    <div class="media-username">Горячев А.</div>
+                  </div>
+                </div>
               </td>
               <td>
-                <button type="button" class="btn btn-warning btn-sm">Изменить</button>
-                <button type="button" class="btn btn-danger btn-sm">Удалить</button>
+                <div class="media">
+                  <img
+                    title="hhwwlll"
+                    width="36"
+                    height="36"
+                    src="https://sun9-43.userapi.com/c855424/v855424708/15775d/wXpomsKnayc.jpg?ava=1"
+                    class="mr-3"
+                    alt="..."
+                  />
+                  <div class="media-body">
+                    <div class="media-username">Городко И.</div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <img
+                  width="36"
+                  height="36"
+                  src="http://elesy.ru/media/567417/%D1%86%D0%B5%D0%BD%D1%82%D1%80.png"
+                  class="mr-3"
+                  title="SCADA INTEGRITY"
+                  alt="..."
+                />
+                <img
+                  width="36"
+                  height="36"
+                  src="http://elesy.ru/media/582873/scadainfinity-v2_150x150.jpg"
+                  class="mr-3"
+                  title="SCADA INFINITY"
+                  alt="..."
+                />
+                <img
+                  width="36"
+                  height="36"
+                  src="http://elesy.com/media/272006/infinity-etl.png"
+                  title="SCADA INFINITY ETL"
+                  class="mr-3"
+                  alt="..."
+                />
+                <img
+                  width="36"
+                  height="36"
+                  src="http://www.logo-avtomatika.ru/images/WINCC.png"
+                  class="mr-3"
+                  alt="..."
+                />
               </td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
-    <b-modal ref="addBookModal"
-            id="book-modal"
-            title="Add a new book"
-            hide-footer>
-      <b-form @submit="onSubmit" @reset="onReset" class="w-100">
-      <b-form-group id="form-title-group"
-                    label="Title:"
-                    label-for="form-title-input">
-          <b-form-input id="form-title-input"
-                        type="text"
-                        v-model="addBookForm.title"
-                        required
-                        placeholder="Enter title">
-          </b-form-input>
-        </b-form-group>
-        <b-form-group id="form-author-group"
-                      label="Author:"
-                      label-for="form-author-input">
-            <b-form-input id="form-author-input"
-                          type="text"
-                          v-model="addBookForm.author"
-                          required
-                          placeholder="Enter author">
-            </b-form-input>
-          </b-form-group>
-        <b-form-group id="form-read-group">
-          <b-form-checkbox-group v-model="addBookForm.read" id="form-checks">
-            <b-form-checkbox value="true">Read?</b-form-checkbox>
-          </b-form-checkbox-group>
-        </b-form-group>
-        <b-button type="submit" variant="primary">Submit</b-button>
-        <b-button type="reset" variant="danger">Reset</b-button>
-      </b-form>
-    </b-modal>
+
   </div>
 </template>
 
 <script>
-
-
 export default {
   data() {
     return {
       books: [],
       addBookForm: {
-        title: '',
-        author: '',
-        read: [],
-      },
+        title: "",
+        author: "",
+        read: []
+      }
     };
   },
   methods: {
     getBooks() {
-      const path = 'http://localhost:5000/books';
-      axios.get(path)
-        .then((res) => {
+      const path = "http://localhost:5000/books";
+      axios
+        .get(path)
+        .then(res => {
           this.books = res.data.books;
         })
-        .catch((error) => {
+        .catch(error => {
           // eslint-отключение следующей строки
           console.error(error);
         });
     },
     addBook(payload) {
-      const path = 'http://localhost:5000/books';
-      axios.post(path, payload)
+      const path = "http://localhost:5000/books";
+      axios
+        .post(path, payload)
         .then(() => {
           this.getBooks();
         })
-        .catch((error) => {
+        .catch(error => {
           // eslint-отключение следующей строки
           console.log(error);
           this.getBooks();
         });
     },
     initForm() {
-      this.addBookForm.title = '';
-      this.addBookForm.author = '';
+      this.addBookForm.title = "";
+      this.addBookForm.author = "";
       this.addBookForm.read = [];
     },
     onSubmit(evt) {
@@ -179,7 +194,7 @@ export default {
       const payload = {
         title: this.addBookForm.title,
         author: this.addBookForm.author,
-        read, // сокращённое свойство
+        read // сокращённое свойство
       };
       this.addBook(payload);
       this.initForm();
@@ -188,10 +203,19 @@ export default {
       evt.preventDefault();
       this.$refs.addBookModal.hide();
       this.initForm();
-    },
+    }
   },
   created() {
     this.getBooks();
-  },
+  }
 };
 </script>
+
+<style scoped>
+  .media-username {
+    text-align: left;
+  }
+  img {
+    margin: 1px;
+  }
+</style>
