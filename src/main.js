@@ -8,12 +8,17 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 import store from './store'
 import Navigation from '@/components/Navigation'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faCodeBranch } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+library.add(faCodeBranch)
 
 Vue.use(VueAxios, axios);
 Vue.use(Navigation)
 
 Vue.component('navigation', Navigation);
-
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false;
 

@@ -14,7 +14,7 @@
           <thead class="sticky-top thead-dark">
             <tr>
               <th scope="col">ПГВР</th>
-              <th scope="col">Путь</th>
+              <th scope="col">Hg</th>
               <th scope="col">КД</th>
               <th scope="col">ВУ</th>
               <th scope="col">СУ</th>
@@ -28,7 +28,7 @@
               <td>
                 <b>986.57</b>
               </td>
-              <td>http://986.57</td>
+              <td><font-awesome-icon icon="code-branch" class="fa-icon"/></td>
               <td>
                 <div class="media">
                   <img
@@ -217,5 +217,9 @@ export default {
   }
   img {
     margin: 1px;
+  }
+  .fa-icon {
+    font-size: 1.8em;
+    color: rgb(56, 56, 56);
   }
 </style>
