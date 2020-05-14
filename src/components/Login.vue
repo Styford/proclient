@@ -15,7 +15,7 @@
           <small
             id="emailHelp"
             class="form-text text-muted"
-          >Введите вашу рабочую почту @elesy.ru</small>
+          >Введите вашу рабочую почту example@elesy.ru</small>
         </div>
         <div class="form-group">
           <label for="inputPassword1">Пароль</label>

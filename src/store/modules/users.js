@@ -28,7 +28,7 @@ export default {
         getCurrentUserFromServer (ctx) {
             let response = {};
             const path = 'http://10.99.0.103:5000/user/getcurrentuser';
-            axios.get(path, config)
+            axios.get(path, )
                 .then((res) => {
                     response = res.data;
                     console.log(response.message);

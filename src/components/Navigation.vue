@@ -17,7 +17,7 @@
             <a class="nav-link" href="#">Pricing</a>
           </li>
         </ul>
-        <span class="navbar-text">
+        <span class="navbar-text user-name" v-on:click="goToLogin">
           {{ getCurrentUser }}
         </span>
       </div>
@@ -31,5 +31,16 @@ import {mapGetters} from 'vuex'
 export default {
   name: 'App',
   computed: mapGetters(["getCurrentUser"]),
+  methods: {
+      goToLogin(){
+          this.$router.push('/user/login');
+      },
+  }
 }
 </script>
+
+<style scoped>
+    .user-name:hover {
+        cursor: pointer;
+    }
+</style>
