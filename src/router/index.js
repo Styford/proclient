@@ -5,6 +5,7 @@ import Ping from '@/components/Ping'
 import AllProjects from '@/components/AllProjects'
 import Registration from '@/components/Registration'
 import Login from '@/components/Login'
+import FillBase from '@/components/FillBase'
 Vue.use(Router)
 
 export default new Router({
@@ -33,6 +34,11 @@ export default new Router({
       path: '/user/login',
       name: 'Login',
       component: Login,
+    },
+    {
+      path: '/fillbase',
+      name: 'FillBase',
+      component: FillBase,
     },
   ],
   mode: 'history',
