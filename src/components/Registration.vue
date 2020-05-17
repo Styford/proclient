@@ -28,6 +28,8 @@
         </div>
         
         <button type="submit" class="btn btn-dark">Сделать мир лучше!</button>
+        <hr>
+        <p class="pseudo-link" v-on:click="goToLogin">У меня есть аккаунт</p>
       </form>
     </div>
   </div>
@@ -50,7 +52,7 @@ export default {
     login(evt) {      
       evt.preventDefault();
       this.response = "";
-      const path = 'http://10.99.0.103:5000/user/registration';
+      const path = this.$store.getters.getApiUrl + '/user/registration';
       if (this.pass1 == this.pass2) {
         this.payload = {
           "email" : this.email,
@@ -73,7 +75,10 @@ export default {
         this.pass1 = "";
         this.pass2 = "";
       }
-    }
+    },
+    goToLogin(){
+        this.$router.push('/user/login');
+    },
   },
   created() {
         //this.login();
@@ -84,5 +89,8 @@ export default {
 <style scoped>
   #registration {
     margin-top: 5%;
+  }
+  .pseudo-link:hover {
+    cursor: pointer;
   }
 </style>

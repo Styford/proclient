@@ -1,6 +1,5 @@
 <template>
   <div class="container-fluid">
-    <span class="badge badge-danger float-left float-top alfa-badge">ALFA</span>
     <div class="mr-5 ml-5">
       <div class="dcol-xl-10">
         <h1>Проекты</h1>

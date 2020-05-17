@@ -22,8 +22,9 @@
           <input required v-model="pass1" type="password" class="form-control" id="inputPassword1" />
           <span style="color: red"> {{ response.message }} </span>
         </div>
-        
         <button type="submit" class="btn btn-dark">Сделать мир лучше!</button>
+        <hr>
+        <p class="pseudo-link" v-on:click="goToRegistration">Регистрация</p>
       </form>
     </div>
   </div>
@@ -48,6 +49,9 @@ export default {
               "password" : this.pass1
             },
       this.$store.dispatch('login', this.payload)
+    },
+    goToRegistration() {
+      this.$router.push('/user/registration');
     }
   },
   created() {
@@ -59,5 +63,8 @@ export default {
 <style scoped>
   #login {
     margin-top: 5%;
+  }
+  .pseudo-link:hover {
+    cursor: pointer;
   }
 </style>

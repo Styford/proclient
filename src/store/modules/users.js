@@ -11,11 +11,10 @@ export default {
     actions: {
         login(ctx, payload) {      
             let response = {};
-            const path = 'http://10.99.0.103:5000/user/login';
+            const path = this.getters.getApiUrl + '/user/login';
             axios.post(path, payload, config)
               .then((res) => {
                 response = res.data;
-                console.log(response.message);
                 if (response.status === "success") {
                   ctx.commit('updateCurentUser', response.current_user)
                   this.$router.push('/');
@@ -27,11 +26,10 @@ export default {
             },
         getCurrentUserFromServer (ctx) {
             let response = {};
-            const path = 'http://10.99.0.103:5000/user/getcurrentuser';
+            const path = this.getters.getApiUrl + '/user/getcurrentuser';
             axios.get(path, )
                 .then((res) => {
                     response = res.data;
-                    console.log(response.message);
                     if (response.status === "success") {
                       ctx.commit('updateCurentUser', response.current_user)
                     }
