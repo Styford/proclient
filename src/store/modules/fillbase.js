@@ -46,6 +46,7 @@ export default {
             axios.get(path)
                 .then(res => {
                     ctx.commit('updateBaseSkillDesc', res.data.skills)
+                    ctx.commit('updateFiltredSkillDesc', )
                 })
                 .catch(error => {
                     console.error(error);
@@ -73,11 +74,25 @@ export default {
                     console.error(error);
                   });
         },
+        filter_base_skills(ctx, filter) {
+            let filtred = this.getters.getBaseSkillDesc.filter(function(skill) {
+                return skill.toLowerCase().indexOf(filter.toLowerCase()) >= 0;
+            });
+            ctx.commit('updateFiltredSkillDesc', filtred);
+        },
+        
+        filter_base_certs(ctx, filter) {
+            let filtred = this.getters.getBaseCertDesc.filter(function(cert) {
+                return cert.toLowerCase().indexOf(filter.toLowerCase()) >= 0;
+            });
+            ctx.commit('updateFiltredCertDesc', filtred);
+        },
+
         filter_base_groups(ctx, filter) {
             let filtred = this.getters.getBaseGroupName.filter(function(gName) {
                 return gName.toLowerCase().indexOf(filter.toLowerCase()) >= 0;
             });
-            ctx.commit('updateBaseGroupName', filtred);
+            ctx.commit('updateFiltredGroupName', filtred);
         }
 
     },
@@ -93,6 +108,15 @@ export default {
         },
         updateBaseCertDesc(state, baseCertDesc) {
             state.baseCertDesc = baseCertDesc;
+        },
+        updateFiltredGroupName(state, filtredGroupName) {
+            state.filtredGroupName = filtredGroupName;
+        },
+        updateFiltredSkillDesc(state, filtredSkillDesc) {
+            state.filtredSkillDesc = filtredSkillDesc;
+        },
+        updateFiltredCertDesc(state, filtredCertDesc) {
+            state.filtredCertDesc = filtredCertDesc;
         }
     },
     state: {
@@ -100,7 +124,9 @@ export default {
         baseGroupName : {},
         baseSkillDesc : {},
         baseCertDesc : {},
-        
+        filtredGroupName : {},
+        filtredSkillDesc : {},
+        filtredCertDesc : {},
     },
     getters: {
         getFillBaseReponse(state) {
@@ -114,6 +140,15 @@ export default {
         },
         getBaseSkillDesc(state) {
             return state.baseSkillDesc
+        },
+        getFiltredGroupName(state) {
+            return state.filtredGroupName
+        },
+        getFiltredCertDesc(state) {
+            return state.filtredCertDesc
+        },
+        getFiltredSkillDesc(state) {
+            return state.filtredSkillDesc
         },
     }
 }

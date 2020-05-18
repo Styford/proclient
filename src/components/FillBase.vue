@@ -78,21 +78,35 @@
             <input
               placeholder="Введите текст для фильтрации списка"
               class="form-control-sm input-field"
-              id="group_filter"
-              v-model="groupFilter"
-              @input="filter_group"
+              id="skill_filter"
+              v-model="skillFilter"
+              @input="filter_skill"
             />
-            <li v-for="skill in getBaseSkillDesc" :key="skill" >
+            <li v-for="skill in getFiltredSkillDesc" :key="skill" >
                 {{ skill }}                
             </li>
         </ul>
         <ul class="container list-base list-unstyled text-left col-sm">
-            <li v-for="cert in getBaseCertDesc" :key="cert">
+            <input
+              placeholder="Введите текст для фильтрации списка"
+              class="form-control-sm input-field"
+              id="cert_filter"
+              v-model="certFilter"
+              @input="filter_cert"
+            />
+            <li v-for="cert in getFiltredCertDesc" :key="cert">
                 {{ cert }}
             </li>
         </ul>
         <ul class="container list-base list-unstyled text-left col-sm">
-            <li v-for="group in getBaseGroupName" :key="group">
+             <input
+              placeholder="Введите текст для фильтрации списка"
+              class="form-control-sm input-field"
+              id="group_filter"
+              v-model="groupFilter"
+              @input="filter_group"
+            />
+            <li v-for="group in getFiltredGroupName" :key="group">
                 {{ group }}
             </li>
         </ul>
@@ -117,7 +131,9 @@ export default {
       allCertDesc: [],
       allSkillDesc: [],
       allGroupName: [],
-      groupFilter: ""
+      groupFilter: "",
+      certFilter: "",
+      skillFilter: ""
 
     };
   },
@@ -125,7 +141,12 @@ export default {
     filter_group(value) {
       this.$store.dispatch("filter_base_groups", this.groupFilter)
     },
-
+    filter_cert(value) {
+      this.$store.dispatch("filter_base_certs", this.certFilter)
+    },
+    filter_skill(value) {
+      this.$store.dispatch("filter_base_skills", this.skillFilter)
+    },
     send_skill_desc(evt) {
         evt.preventDefault();
         this.payload = {
@@ -160,7 +181,10 @@ export default {
     "getFillBaseReponse",
     "getBaseGroupName",
     "getBaseSkillDesc",
-    "getBaseCertDesc"
+    "getBaseCertDesc",
+    "getFiltredGroupName",
+    "getFiltredSkillDesc",
+    "getFiltredCertDesc",
     ]),
   created() {
       //this.get_base_certs(),
@@ -168,7 +192,10 @@ export default {
       //this.get_base_skill(),
       this.$store.dispatch('get_base_skill'),
       this.$store.dispatch('get_base_certs'),
-      this.$store.dispatch('get_base_groups')
+      this.$store.dispatch('get_base_groups'),
+      this.$store.dispatch('filter_base_groups', ''),
+      this.$store.dispatch('filter_base_groups', ''),
+      this.$store.dispatch('filter_base_groups', '')
   }
 };
 </script>
@@ -195,8 +222,8 @@ export default {
     border-style: solid;
     border-radius: 3px;
     border-color: #aaa;
-    padding: 10px;
-    padding-left: 30px;
+    padding: 10px 20px 10px 20px;
+    
     max-width: 500px;
 }
 
