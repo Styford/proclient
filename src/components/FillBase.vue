@@ -191,11 +191,9 @@ export default {
       //this.get_base_group(),
       //this.get_base_skill(),
       this.$store.dispatch('get_base_skill'),
-      this.$store.dispatch('get_base_certs'),
       this.$store.dispatch('get_base_groups'),
-      this.$store.dispatch('filter_base_groups', ''),
-      this.$store.dispatch('filter_base_groups', ''),
-      this.$store.dispatch('filter_base_groups', '')
+      this.$store.dispatch('get_base_certs')
+
   }
 };
 </script>

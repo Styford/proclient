@@ -45,8 +45,8 @@ export default {
             const path = this.getters.getApiUrl + "/api/skills/getalldesc";
             axios.get(path)
                 .then(res => {
-                    ctx.commit('updateBaseSkillDesc', res.data.skills)
-                    ctx.commit('updateFiltredSkillDesc', )
+                    ctx.commit('updateBaseSkillDesc', res.data.skills);
+                    ctx.commit('updateFiltredSkillDesc', res.data.skills);
                 })
                 .catch(error => {
                     console.error(error);
@@ -57,7 +57,8 @@ export default {
             const path = this.getters.getApiUrl + "/api/user/getallcerts";
             axios.get(path)
                 .then(res => {
-                    ctx.commit('updateBaseCertDesc', res.data.certs)
+                    ctx.commit('updateBaseCertDesc', res.data.certs);
+                    ctx.commit('updateFiltredCertDesc', res.data.certs);
                 })
                 .catch(error => {
                     console.error(error);
@@ -68,14 +69,15 @@ export default {
             const path = this.getters.getApiUrl + "/api/user/getallgroups";
             axios.get(path)
                 .then(res => {
-                    ctx.commit('updateBaseGroupName', res.data.groups)
+                    ctx.commit('updateBaseGroupName', res.data.groups);
+                    ctx.commit('updateFiltredGroupName', res.data.groups);
                 })
                 .catch(error => {
                     console.error(error);
                   });
         },
         filter_base_skills(ctx, filter) {
-            let filtred = this.getters.getBaseSkillDesc.filter(function(skill) {
+            let filtred = this.getters.getBaseSkillDesc.filter(function(skill) {    
                 return skill.toLowerCase().indexOf(filter.toLowerCase()) >= 0;
             });
             ctx.commit('updateFiltredSkillDesc', filtred);
