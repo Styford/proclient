@@ -12,7 +12,7 @@
             <a class="nav-link" href="#" v-on:click="goToAllProjects">Проекты</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Разработчики</a>
+            <a class="nav-link" href="#" v-on:click="goToAllUsers">Разработчики</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" v-on:click="goToFillBase">Справочники</a>
@@ -35,6 +35,9 @@ export default {
   methods: {
       goToLogin(){
           this.$router.push('/user/login');
+      },
+      goToAllUsers() {
+          this.$router.push('/user/all');
       },
       goToFillBase(){
           this.$router.push('/fillbase');

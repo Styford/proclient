@@ -6,6 +6,7 @@ import AllProjects from '@/components/AllProjects'
 import Registration from '@/components/Registration'
 import Login from '@/components/Login'
 import FillBase from '@/components/FillBase'
+import AllUsers from '@/components/AllUsers'
 Vue.use(Router)
 
 export default new Router({
@@ -34,6 +35,11 @@ export default new Router({
       path: '/user/login',
       name: 'Login',
       component: Login,
+    },
+    {
+      path: '/user/all',
+      name: 'AllUsers',
+      component: AllUsers,
     },
     {
       path: '/fillbase',
